@@ -1,0 +1,23 @@
+今天在Linux下安装了gcc，遇到一些问题和解决方法记录。
+gcc是c、c++编译软件，安装主要步骤
+1.安装gcc、c++编译器及内核文件
+  对于装了yum（shell前端软件包，自动下载RPM包并安装）的linux，只需执行命令就可以从yun服务器得到安装更新，命令：
+  yum -y install gcc gcc-c++ kernel-devel
+2.准备工作，下载gcc安装文件，下载地址gcc-4.9.0.tar.bz2
+            安装c、c++静态库  yum install -y glibc-static libstdc++-static
+			安装旧版本gcc、c++编译器  yum install gcc gcc-c++
+3.解压gcc安装文件
+tar jxf gcc-4.9.0.tar.bz2 -C /usr/local/src
+遇到问题no such file or directory 说明没有找到此文件，如果是文件名字多空格大小写之类问题，可以利用转义字符进入到目录，如cd gcc\ /
+问题2 tar cannot open no such file or directory
+tar如何解压到指定文件夹，
+4.解压完全之后转到目录下cd /usr/local/src/gcc-4.9.0
+  自动下载、配置、安装三个依赖库./contrib/download_prerequisites
+5.注意make之前检查动态库ld.so.conf文件，要加入默认目录下/usr/lib
+tab键识别的可能是文件缩写，如tab键识别的可能是文件缩写，如.conf文件tab识别成.c文件，在复制过程中一定要写文件全称 
+cp -r /etc/ld.so.conf /usr/lib
+6.make 需要耗较长时间 make install
+参考文档http://www.softown.cn/post/141.html
+http://jingyan.baidu.com/article/154b4631aa38bb28ca8f41fb.html
+其它注意事项 查找find -name "gcc*"（“此处要写文件全称或加*”）
+             
