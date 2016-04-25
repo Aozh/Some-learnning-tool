@@ -1,0 +1,24 @@
+gcc编译c和c++
+1.c程序编译测试如下：
+首先在自己选择的目录下建立文件 vi hello.c
+文编编辑c文件#include <stdio.h>  
+int main()  
+{  
+        printf("Hello my linux world!\n");  
+        return 0;  
+}  
+执行命令gcc -o hello hello.c
+ls发现生成可执行文件hello
+./hello运行可执行文件
+2.c++程序编译测试如下
+首先在自己选择的目录下建立文件 vi hello.cpp
+文编编辑c++文件
+    #include <iostream>
+    using namespace std;
+    int main() {
+        cout << "Hello my first linux c++ code" << endl;
+        return 0;
+    }
+执行命令gcc  hello.cpp -o helloplus
+ls发现生成可执行文件helloplus
+./helloplus运行可执行文件
